@@ -1,0 +1,23 @@
+.navbar-wrapper {
+  height: 80px;
+  width: 100%;
+}
+.btn {
+  float: right;
+  margin-right: 30px;
+}
+.colomn {
+  height: 250px;
+  width: 250px;
+  border: 2px solid black;
+  margin: 1px;
+  float: right;
+}
+
+.cards {
+  height: 250px;
+  width: 250px;
+  border: 2px solid black;
+  margin: 1px;
+  float: right;
+}
