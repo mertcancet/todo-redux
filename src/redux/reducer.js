@@ -1,8 +1,8 @@
 import I from "immutable";
 
 const initialStore = I.fromJS({
-  columnList: [{ id: 1, text: "" }],
-  cardList: [{ id: 1, cardText: "", cardColumn: "" }],
+  columnList: [{ id: 0, text: "" }],
+  cardList: [{ id: 0, cardText: "", cardColumn: "" }],
 });
 
 export default function reducer(store = initialStore, action) {

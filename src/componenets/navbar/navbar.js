@@ -58,6 +58,7 @@ class Navbar extends React.Component {
                       key={each.get("id", Math.random())}
                       value={each.get("text")}
                     >
+                    
                       {each.get("text", "gelmedi")}
                     </option>
                   );
