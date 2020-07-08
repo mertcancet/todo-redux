@@ -10,9 +10,12 @@ class Navbar extends React.Component {
     this.state = {
       cardText: "",
       columnText: "",
+      cardColumn: "",
     };
     this.handleCardText = this.handleCardText.bind(this);
     this.handleColumnText = this.handleColumnText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleCardText(value) {
@@ -21,8 +24,21 @@ class Navbar extends React.Component {
   handleColumnText(value) {
     this.setState({ columnText: value });
   }
+  handleChange(event) {
+    this.setState({ cardColumn: event.target.value });
+  }
+  handleSubmit(e) {
+    console.log(
+      this.props.addCard({
+        id: Math.random(),
+        cardText: this.state.cardText,
+        cardColumn: this.state.cardColumn,
+      })
+    );
+    e.preventDefault();
+  }
   render() {
-    const { cardText, columnText } = this.state;
+    const {  columnText } = this.state;
 
     return (
       <div className="navbar-wrapper">
@@ -30,29 +46,26 @@ class Navbar extends React.Component {
         <div className="cards ">
           add cards
           <br />
-          <input onChange={(e) => this.handleCardText(e.target.value)}></input>
-          <div>
-            <select name="" id="cars">
-              {this.props.columnList.map((each) => {
-                return (
-                  <option key={each.get("id", Math.random())}>
-                    {each.get("text", "gelmedi")}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <button
-            className="add-cards btn"
-            onClick={() =>
-              this.props.addCard({
-                id: Math.random(),
-                cardHeader: cardText,
-              })
-            }
-          >
-            Kart Ekle
-          </button>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              onChange={(e) => this.handleCardText(e.target.value)}
+            ></input>
+            <div>
+              <select name="" id="" onChange={this.handleChange}>
+                {this.props.columnList.map((each) => {
+                  return (
+                    <option
+                      key={each.get("id", Math.random())}
+                      value={each.get("text")}
+                    >
+                      {each.get("text", "gelmedi")}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <input type="submit" value="gönder" />
+          </form>
         </div>
         ---------------------------------------
         <div className="colomn ">

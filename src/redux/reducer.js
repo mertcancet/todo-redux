@@ -2,7 +2,7 @@ import I from "immutable";
 
 const initialStore = I.fromJS({
   columnList: [{ id: 1, text: "" }],
-  cardText: "",
+  cardList: [{ id: 1, cardText: "", cardColumn: "" }],
 });
 
 export default function reducer(store = initialStore, action) {
@@ -16,7 +16,11 @@ export default function reducer(store = initialStore, action) {
       );
 
     case "ADD_CARD":
-      return console.log("card eklendi");
+      return store.set(
+        "cardList",
+        store.get("cardList", I.List()).unshift(data)
+      );
+
     default:
       return store;
   }
