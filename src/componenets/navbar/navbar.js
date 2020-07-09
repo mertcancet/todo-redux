@@ -11,11 +11,15 @@ class Navbar extends React.Component {
       cardText: "",
       columnText: "",
       cardColumn: "",
+      isColumnRendererHidden: false,
+      isCardRendererHidden: false,
     };
     this.handleCardText = this.handleCardText.bind(this);
     this.handleColumnText = this.handleColumnText.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.toggleHideCard = this.toggleHideCard.bind(this);
+    this.toggleHideColumn = this.toggleHideColumn.bind(this);
   }
 
   handleCardText(value) {
@@ -37,56 +41,80 @@ class Navbar extends React.Component {
     );
     e.preventDefault();
   }
+  toggleHideColumn() {
+    this.setState({
+      isColumnRendererHidden: !this.state.isColumnRendererHidden,
+    });
+  }
+  toggleHideCard() {
+    this.setState({ isCardRendererHidden: !this.state.isCardRendererHidden });
+  }
   render() {
-    const {  columnText } = this.state;
+    const {
+      columnText,
+      isColumnRendererHidden,
+      isCardRendererHidden,
+    } = this.state;
 
     return (
       <div className="navbar-wrapper">
         navbar
-        <div className="cards ">
-          add cards
-          <br />
-          <form onSubmit={this.handleSubmit}>
+        <button onClick={this.toggleHideColumn}>
+          {isColumnRendererHidden ? "göster-column" : "gizle-column"}
+        </button>
+        <button onClick={this.toggleHideCard}>
+          {isCardRendererHidden ? "göster-card" : "gizle-card"}
+        </button>
+        {!isColumnRendererHidden ? (
+          <div className="colomn ">
+            add column
+            <br />
             <input
-              onChange={(e) => this.handleCardText(e.target.value)}
+              onChange={(e) => this.handleColumnText(e.target.value)}
             ></input>
-            <div>
-              <select name="" id="" onChange={this.handleChange}>
-                {this.props.columnList.map((each) => {
-                  return (
-                    <option
-                      key={each.get("id", Math.random())}
-                      value={each.get("text")}
-                    >
-                    
-                      {each.get("text", "gelmedi")}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <input type="submit" value="gönder" />
-          </form>
-        </div>
-        ---------------------------------------
-        <div className="colomn ">
-          add column
-          <br />
-          <input
-            onChange={(e) => this.handleColumnText(e.target.value)}
-          ></input>
-          <button
-            className="add-colomn btn"
-            onClick={() =>
-              this.props.addColumn({
-                id: Math.random(),
-                text: columnText,
-              })
-            }
-          >
-            Kolon Ekle
-          </button>
-        </div>
+            <button
+              className="add-colomn btn"
+              onClick={() =>
+                this.props.addColumn({
+                  id: Math.random(),
+                  text: columnText,
+                })
+              }
+            >
+              Kolon Ekle
+            </button>
+          </div>
+        ) : (
+          <h3>column gizli</h3>
+        )}
+        {!isCardRendererHidden ? (
+          <div className="cards ">
+            add cards
+            <br />
+            <form onSubmit={this.handleSubmit}>
+              <input
+                onChange={(e) => this.handleCardText(e.target.value)}
+              ></input>
+              <div>
+                <select name="" id="" onChange={this.handleChange}>
+                  {this.props.columnList.map((each) => {
+                    return (
+                      <option
+                        key={each.get("id", Math.random())}
+                        value={each.get("text")}
+                      >
+                        {each.get("text", "gelmedi")}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <input type="submit" value="gönder" />
+            </form>
+          </div>
+        ) : (
+          <h3>card gizli</h3>
+        )}
       </div>
     );
   }
