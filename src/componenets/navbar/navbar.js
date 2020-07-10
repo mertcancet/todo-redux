@@ -11,8 +11,8 @@ class Navbar extends React.Component {
       cardText: "",
       columnText: "",
       cardColumn: "",
-      isColumnRendererHidden: false,
-      isCardRendererHidden: false,
+      isColumnRendererHidden: true,
+      isCardRendererHidden: true,
     };
     this.handleCardText = this.handleCardText.bind(this);
     this.handleColumnText = this.handleColumnText.bind(this);
@@ -32,13 +32,13 @@ class Navbar extends React.Component {
     this.setState({ cardColumn: event.target.value });
   }
   handleSubmit(e) {
-    console.log(
+   
       this.props.addCard({
         id: Math.random(),
         cardText: this.state.cardText,
         cardColumn: this.state.cardColumn,
       })
-    );
+    
     e.preventDefault();
   }
   toggleHideColumn() {
@@ -59,11 +59,11 @@ class Navbar extends React.Component {
     return (
       <div className="navbar-wrapper">
         navbar
-        <button onClick={this.toggleHideColumn}>
-          {isColumnRendererHidden ? "göster-column" : "gizle-column"}
+        <button className="hide-column btn" onClick={this.toggleHideColumn}>
+          {isColumnRendererHidden ? "column-göster" : "column-gizle"}
         </button>
-        <button onClick={this.toggleHideCard}>
-          {isCardRendererHidden ? "göster-card" : "gizle-card"}
+        <button className="hide-card btn" onClick={this.toggleHideCard}>
+          {isCardRendererHidden ? "card-göster" : "card-gizle"}
         </button>
         {!isColumnRendererHidden ? (
           <div className="colomn ">
@@ -79,6 +79,7 @@ class Navbar extends React.Component {
                   id: Math.random(),
                   text: columnText,
                 })
+                
               }
             >
               Kolon Ekle
@@ -115,6 +116,7 @@ class Navbar extends React.Component {
         ) : (
           <h3>card gizli</h3>
         )}
+        ;
       </div>
     );
   }

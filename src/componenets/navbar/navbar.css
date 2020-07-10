@@ -1,6 +1,7 @@
 .navbar-wrapper {
   height: 80px;
   width: 100%;
+  background-color: cornflowerblue;
 }
 .btn {
   float: right;
@@ -19,5 +20,8 @@
   width: 250px;
   border: 2px solid black;
   margin: 1px;
+  float: right;
+}
+.btn {
   float: right;
 }
