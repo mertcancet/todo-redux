@@ -32,13 +32,12 @@ class Navbar extends React.Component {
     this.setState({ cardColumn: event.target.value });
   }
   handleSubmit(e) {
-   
-      this.props.addCard({
-        id: Math.random(),
-        cardText: this.state.cardText,
-        cardColumn: this.state.cardColumn,
-      })
-    
+    this.props.addCard({
+      id: Math.random(),
+      cardText: this.state.cardText,
+      cardColumn: this.state.cardColumn,
+    });
+
     e.preventDefault();
   }
   toggleHideColumn() {
@@ -79,7 +78,6 @@ class Navbar extends React.Component {
                   id: Math.random(),
                   text: columnText,
                 })
-                
               }
             >
               Kolon Ekle

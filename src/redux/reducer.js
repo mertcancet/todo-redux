@@ -20,7 +20,11 @@ export default function reducer(store = initialStore, action) {
         "cardList",
         store.get("cardList", I.List()).unshift(data)
       );
-
+    case "DELETE_TODO":
+      return store.set(
+        "cardList",
+        store.get("cardList", I.List()).delete(action.data)
+      );
     default:
       return store;
   }

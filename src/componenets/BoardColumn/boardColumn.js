@@ -10,6 +10,7 @@ class BoardColumn extends React.Component {
     this.state = {
       isAddCardHidden: true,
       cardText: "",
+      cardColumn: "",
     };
     this.toggleAddCard = this.toggleAddCard.bind(this);
     this.cardHandleSubmit = this.cardHandleSubmit.bind(this);
@@ -19,9 +20,13 @@ class BoardColumn extends React.Component {
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
   }
   cardHandleSubmit(e) {
-    console.log(e.target.value);
     e.preventDefault();
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
+    this.props.addCard({
+      id: Math.random(),
+      cardText: this.state.cardText,
+      cardColumn: this.state.cardColumn,
+    });
   }
   handleCardText(value) {
     this.setState({ cardText: value });
@@ -32,13 +37,13 @@ class BoardColumn extends React.Component {
     return (
       <div className="boardColumn-wrapper">
         <h1>BoardColumn</h1>
-        {this.props.columnList.map((each) => {
+        {this.props.columnList.map((each, index) => {
           return (
             <div className="boardColumn" key={each.get("id", Math.random())}>
               <h1>{each.get("text", "")}</h1>
               <br />
 
-              {this.props.cardList.map((card) => {
+              {this.props.cardList.map((card,index) => {
                 if (card.get("cardColumn") === each.get("text")) {
                   return (
                     <div key={card.get("id", Math.random())}>
@@ -47,6 +52,7 @@ class BoardColumn extends React.Component {
                         id={card.get("id", "-")}
                         cardText={card.get("cardText", "")}
                         cardColumn={each.get("text", "")}
+                        index={index}
                       />
                     </div>
                   );
@@ -66,7 +72,8 @@ class BoardColumn extends React.Component {
                     ></input>
                     <input type="submit"></input>
                   </form>
-                  {this.state.cardText}
+                  {this.props.columnList.get("text", "gelmedi")}
+                  {index}
                 </div>
               ) : (
                 <p>bye bye</p>
@@ -86,8 +93,10 @@ function mapStateToProps(store) {
     cardList: store.get("cardList", I.List()),
   };
 }
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    addCard: (add) => dispatch({ type: "ADD_CARD", data: add }),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardColumn);
