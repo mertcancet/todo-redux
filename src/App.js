@@ -1,23 +1,25 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./componenets/navbar/navbar";
-import BoardColumn from "./componenets/BoardColumn/boardColumn";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import reducer from "./redux/reducer";
+import Head from "./componenets/Head/head";
+import Welcome from "./componenets/Welcome/welcome";
+import Todo from "./componenets/toDo/todo";
+import Goodbye from "./componenets/Goodbye/goodbye";
 
-const store = createStore(reducer);
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-class App extends React.Component {
+class App extends React.PureComponent {
   render() {
     return (
-      <Provider store={store}>
-        <div>
-          selam
-          <Navbar />
-          <BoardColumn />
-        </div>
-      </Provider>
+      <>
+        <BrowserRouter>
+          <Head />
+          <Switch>
+            <Route exact path={"/"} component={Welcome} />
+            <Route path={"/todo"} component={Todo} />
+            <Route path={"/goodbye"} component={Goodbye} />
+          </Switch>
+        </BrowserRouter>
+      </>
     );
   }
 }
