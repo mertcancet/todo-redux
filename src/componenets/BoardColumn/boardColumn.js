@@ -16,12 +16,19 @@ class BoardColumn extends React.Component {
     this.cardHandleSubmit = this.cardHandleSubmit.bind(this);
     this.handleCardText = this.handleCardText.bind(this);
   }
+
   toggleAddCard() {
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
   }
-  cardHandleSubmit(e) {
+  cardHandleSubmit(e, index) {
+    // console.log("istenilen", this.props.columnList.getIn([index, "text"]));
+
     e.preventDefault();
+    this.setState({
+      cardColumn: this.props.columnList.getIn([index, "text"]),
+    });
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
+    console.log("carddcolymn", this.state.cardColumn);
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,
@@ -29,6 +36,7 @@ class BoardColumn extends React.Component {
     });
   }
   handleCardText(value) {
+    console.log("handleCardText");
     this.setState({ cardText: value });
   }
 
@@ -42,8 +50,7 @@ class BoardColumn extends React.Component {
             <div className="boardColumn" key={each.get("id", Math.random())}>
               <h1>{each.get("text", "")}</h1>
               <br />
-
-              {this.props.cardList.map((card,index) => {
+              {this.props.cardList.map((card, index) => {
                 if (card.get("cardColumn") === each.get("text")) {
                   return (
                     <div key={card.get("id", Math.random())}>
@@ -64,7 +71,7 @@ class BoardColumn extends React.Component {
               </button>
               {!isAddCardHidden ? (
                 <div>
-                  <form onSubmit={this.cardHandleSubmit}>
+                  <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
                     <label>Card header</label>
                     <input
                       type="text"
@@ -72,12 +79,12 @@ class BoardColumn extends React.Component {
                     ></input>
                     <input type="submit"></input>
                   </form>
-                  {this.props.columnList.get("text", "gelmedi")}
-                  {index}
                 </div>
               ) : (
                 <p>bye bye</p>
               )}
+              {this.props.columnList.get(index).id}
+              {console.log(this.props.columnList.getIn([index, "text"]))}
             </div>
           );
         })}
