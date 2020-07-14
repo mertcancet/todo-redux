@@ -1,7 +1,7 @@
 import I from "immutable";
 
 const initialStore = I.fromJS({
-  columnList: [{ id: 0, text: "1" }],
+  columnList: [{ id: 0, text: "" }],
   cardList: [{ id: 0, cardText: "", cardColumn: "" }],
 });
 

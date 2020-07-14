@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 
 class Card extends React.Component {
   render() {
-    const { cardText, cardColumn } = this.props;
+    const { cardText } = this.props;
     return (
-      <div>
-        <h3>cardText: {cardText}</h3>
-        <h4>cardColumn:{cardColumn}</h4>
+      <div className="card">
+        <h3 className="card--header">cardText: {cardText}</h3>
+
         <button
-          className="todo-delete-btn"
+          className="card--deleteBtn"
           onClick={() => this.props.deleteCard(this.props.index)}
         >
           {"Delete"}

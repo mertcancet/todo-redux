@@ -1,11 +1,26 @@
-.navbar-wrapper {
+.navbar {
   height: 80px;
   width: 100%;
   background-color: cornflowerblue;
 }
-.btn {
+.navbar__hideColumnBtn {
   float: right;
   margin-right: 30px;
+}
+
+.navbar__hideCardBtn {
+  float: right;
+  margin-right: 30px;
+}
+.navbar__addColumn {
+  height: 250px;
+  width: 250px;
+  border: 2px solid black;
+  margin: 1px;
+  float: right;
+}
+.navbar__addColumn--btn {
+  float: right;
 }
 .colomn {
   height: 250px;
@@ -15,7 +30,7 @@
   float: right;
 }
 
-.cards {
+.navbar__addCard {
   height: 250px;
   width: 250px;
   border: 2px solid black;

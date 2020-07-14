@@ -22,10 +22,11 @@ class BoardColumn extends React.Component {
   }
   cardHandleSubmit(e, index) {
     // console.log("istenilen", this.props.columnList.getIn([index, "text"]));
-
+    let value = this.props.columnList.getIn([index, "text"]);
+    console.log(value);
     e.preventDefault();
     this.setState({
-      cardColumn: this.props.columnList.getIn([index, "text"]),
+      cardColumn: value,
     });
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
     console.log("carddcolymn", this.state.cardColumn);
@@ -43,17 +44,25 @@ class BoardColumn extends React.Component {
   render() {
     const { isAddCardHidden } = this.state;
     return (
-      <div className="boardColumn-wrapper">
+      <div className="boardColumn">
         <h1>BoardColumn</h1>
         {this.props.columnList.map((each, index) => {
           return (
-            <div className="boardColumn" key={each.get("id", Math.random())}>
-              <h1>{each.get("text", "")}</h1>
+            <div
+              className="boardColumn__body"
+              key={each.get("id", Math.random())}
+            >
+              <h1 className="boardColumn__body--header">
+                {each.get("text", "")}
+              </h1>
               <br />
               {this.props.cardList.map((card, index) => {
                 if (card.get("cardColumn") === each.get("text")) {
                   return (
-                    <div key={card.get("id", Math.random())}>
+                    <div
+                      className="boardColumn__card"
+                      key={card.get("id", Math.random())}
+                    >
                       <Card
                         key={card.get("id", Math.random())}
                         id={card.get("id", "-")}
@@ -66,22 +75,31 @@ class BoardColumn extends React.Component {
                 }
               })}
 
-              <button onClick={this.toggleAddCard}>
+              <button
+                className="boardColumn__addCard--addCardbtn"
+                onClick={this.toggleAddCard}
+              >
                 {isAddCardHidden ? "AddCard" : "Hide AddCard"}
               </button>
               {!isAddCardHidden ? (
-                <div>
+                <div className="boardColumn__addCard">
                   <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
-                    <label>Card header</label>
+                    <label className="boardColumn__addCard--header">
+                      Card header
+                    </label>
                     <input
+                      className="boardColumn__addCard--input"
                       type="text"
                       onChange={(e) => this.handleCardText(e.target.value)}
                     ></input>
-                    <input type="submit"></input>
+                    <input
+                      className="boardColumn__addCard--addCardbtn"
+                      type="submit"
+                    ></input>
                   </form>
                 </div>
               ) : (
-                <p>bye bye</p>
+                <p></p>
               )}
               {this.props.columnList.get(index).id}
               {console.log(this.props.columnList.getIn([index, "text"]))}

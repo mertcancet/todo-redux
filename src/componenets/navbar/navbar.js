@@ -56,16 +56,16 @@ class Navbar extends React.Component {
     } = this.state;
 
     return (
-      <div className="navbar-wrapper">
+      <div className="navbar">
         navbar
-        <button className="hide-column btn" onClick={this.toggleHideColumn}>
+        <button className="navbar__hideColumnBtn" onClick={this.toggleHideColumn}>
           {isColumnRendererHidden ? "column-göster" : "column-gizle"}
         </button>
-        <button className="hide-card btn" onClick={this.toggleHideCard}>
+        <button className="navbar__hideCardBtn" onClick={this.toggleHideCard}>
           {isCardRendererHidden ? "card-göster" : "card-gizle"}
         </button>
         {!isColumnRendererHidden ? (
-          <div className="colomn ">
+          <div className="navbar__addColumn ">
             add column
             <br />
             <input
@@ -87,7 +87,7 @@ class Navbar extends React.Component {
           <h3>column gizli</h3>
         )}
         {!isCardRendererHidden ? (
-          <div className="cards ">
+          <div className="navbar__addCard">
             add cards
             <br />
             <form onSubmit={this.handleSubmit}>
