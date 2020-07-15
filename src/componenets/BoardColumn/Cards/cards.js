@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import "./card.css";
 class Card extends React.Component {
   render() {
     const { cardText } = this.props;

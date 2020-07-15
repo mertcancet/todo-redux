@@ -1,8 +1,38 @@
 .boardColumn {
   display: flex;
+  flex-wrap: wrap;
+  background-color: wheat;
 }
 .boardColumn__body {
-  width: 350px;
-  border: 2px solid black;
+  width: 250px;
+  border: 3px solid #f26609;
+  background-color: #333;
+  border-radius: 5px;
+  margin: 20px 10px;
+}
+.boardColumn__body--header {
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 10px;
+  font-weight: 400;
+}
+.boardColumn__addCard {
+  border: 3px solid #f26609;
+  border-radius: 5px;
   margin: 5px;
+  padding: 5px;
+  background-color: #333;
+  color: white;
+}
+.boardColumn__addCard--addCardbtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.boardColumn__addCard--addCardbtn:hover {
+  background-color: #f26609;
 }

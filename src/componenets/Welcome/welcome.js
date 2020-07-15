@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
+import "./welcome.css";
 class Welcome extends React.PureComponent {
   render() {
     const { history } = this.props;

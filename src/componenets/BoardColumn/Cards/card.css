@@ -1,0 +1,20 @@
+.card {
+  border: 3px solid #f26609;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  background-color: #333;
+  color: white;
+}
+.card--deleteBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.card--deleteBtn:hover {
+  border-color: red;
+  background-color: red;
+}

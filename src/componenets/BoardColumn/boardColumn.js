@@ -45,7 +45,6 @@ class BoardColumn extends React.Component {
     const { isAddCardHidden } = this.state;
     return (
       <div className="boardColumn">
-        <h1>BoardColumn</h1>
         {this.props.columnList.map((each, index) => {
           return (
             <div
@@ -74,33 +73,34 @@ class BoardColumn extends React.Component {
                   );
                 }
               })}
-
-              <button
-                className="boardColumn__addCard--addCardbtn"
-                onClick={this.toggleAddCard}
-              >
-                {isAddCardHidden ? "AddCard" : "Hide AddCard"}
-              </button>
-              {!isAddCardHidden ? (
-                <div className="boardColumn__addCard">
-                  <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
-                    <label className="boardColumn__addCard--header">
-                      Card header
-                    </label>
-                    <input
-                      className="boardColumn__addCard--input"
-                      type="text"
-                      onChange={(e) => this.handleCardText(e.target.value)}
-                    ></input>
-                    <input
-                      className="boardColumn__addCard--addCardbtn"
-                      type="submit"
-                    ></input>
-                  </form>
-                </div>
-              ) : (
-                <p></p>
-              )}
+              <div className="boardColumn__addCard">
+                <button
+                  className="boardColumn__addCard--addCardbtn"
+                  onClick={this.toggleAddCard}
+                >
+                  {isAddCardHidden ? "AddCard" : "Hide AddCard"}
+                </button>
+                {!isAddCardHidden ? (
+                  <div >
+                    <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
+                      <label className="boardColumn__addCard--header">
+                        Card header
+                      </label>
+                      <input
+                        className="boardColumn__addCard--input"
+                        type="text"
+                        onChange={(e) => this.handleCardText(e.target.value)}
+                      ></input>
+                      <input
+                        className="boardColumn__addCard--addCardbtn"
+                        type="submit"
+                      ></input>
+                    </form>
+                  </div>
+                ) : (
+                  <p></p>
+                )}
+              </div>
               {this.props.columnList.get(index).id}
               {console.log(this.props.columnList.getIn([index, "text"]))}
             </div>

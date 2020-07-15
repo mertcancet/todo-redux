@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./head.css";
 
 class Head extends React.PureComponent {
   render() {
