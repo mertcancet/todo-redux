@@ -1,3 +1,28 @@
 .head {
-  color: red;
+  height: 60px;
+  width: 99, 999999%;
+  background-color: #333;
+  border: 3px solid #f26609;
+  border-bottom: 0px;
+  border-radius: 2px;
+}
+.head--exitBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  float: right;
+}
+.head--todoBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  
 }

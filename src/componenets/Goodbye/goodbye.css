@@ -1,0 +1,12 @@
+.goodbye {
+  height: 95vh;
+  width: 99, 999999%;
+  background-color: #333;
+  border: 3px solid #f26609;
+  border-radius: 2px;
+}
+
+.goodbye--header {
+  color: white;
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../navbar/navbar";
+
 import "./welcome.css";
 class Welcome extends React.PureComponent {
   render() {
@@ -10,7 +10,6 @@ class Welcome extends React.PureComponent {
         <button onClick={() => history && history.push("/todo")}>
           Todo Gönder{" "}
         </button>
-        <Navbar />
       </div>
     );
   }

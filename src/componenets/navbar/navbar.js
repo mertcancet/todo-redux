@@ -57,8 +57,10 @@ class Navbar extends React.Component {
 
     return (
       <div className="navbar">
-        navbar
-        <button className="navbar__hideColumnBtn" onClick={this.toggleHideColumn}>
+        <button
+          className="navbar__hideColumnBtn"
+          onClick={this.toggleHideColumn}
+        >
           {isColumnRendererHidden ? "column-göster" : "column-gizle"}
         </button>
         <button className="navbar__hideCardBtn" onClick={this.toggleHideCard}>
@@ -66,13 +68,14 @@ class Navbar extends React.Component {
         </button>
         {!isColumnRendererHidden ? (
           <div className="navbar__addColumn ">
-            add column
+            <h2 className="navbar__addColumn--header">Kolon Ekleyin</h2>
             <br />
             <input
+              className="navbar__addColumn--input"
               onChange={(e) => this.handleColumnText(e.target.value)}
             ></input>
             <button
-              className="add-colomn btn"
+              className="navbar__addColumn--btn"
               onClick={() =>
                 this.props.addColumn({
                   id: Math.random(),
@@ -84,7 +87,7 @@ class Navbar extends React.Component {
             </button>
           </div>
         ) : (
-          <h3>column gizli</h3>
+          <p></p>
         )}
         {!isCardRendererHidden ? (
           <div className="navbar__addCard">
@@ -112,9 +115,8 @@ class Navbar extends React.Component {
             </form>
           </div>
         ) : (
-          <h3>card gizli</h3>
+          <p></p>
         )}
-        ;
       </div>
     );
   }

@@ -1,33 +1,63 @@
 .navbar {
   height: 80px;
-  width: 100%;
-  background-color: cornflowerblue;
+  width: 99, 999999%;
+  background-color: #333;
+  border: 3px solid #f26609;
+  border-radius: 2px;
 }
 .navbar__hideColumnBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  margin-top: 10px;
+  padding: 20px;
   float: right;
-  margin-right: 30px;
 }
-
+.navbar__hideColumnBtn:hover {
+  background-color: #f26609;
+}
 .navbar__hideCardBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  margin-top: 10px;
+  padding: 20px;
   float: right;
-  margin-right: 30px;
+}
+.navbar__hideCardBtn:hover {
+  background-color: #f26609;
 }
 .navbar__addColumn {
-  height: 250px;
-  width: 250px;
-  border: 2px solid black;
+  position: absolute;
+
+  height: 350px;
+  width: 350px;
+  background-color: #333;
+
+  box-shadow: 0 0 0 4px #f26609, 0 6px 4px black;
+  border-radius: 3px;
   margin: 1px;
   float: right;
 }
+.navbar__addColumn--header {
+  color: white;
+  text-align: center;
+}
+.navbar__addColumn--input {
+  margin: 20px;
+}
+
 .navbar__addColumn--btn {
-  float: right;
-}
-.colomn {
-  height: 250px;
-  width: 250px;
-  border: 2px solid black;
-  margin: 1px;
-  float: right;
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
 }
 
 .navbar__addCard {
@@ -35,8 +65,5 @@
   width: 250px;
   border: 2px solid black;
   margin: 1px;
-  float: right;
-}
-.btn {
   float: right;
 }

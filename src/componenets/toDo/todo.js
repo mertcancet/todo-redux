@@ -6,7 +6,6 @@ class Todo extends React.PureComponent {
   render() {
     return (
       <div>
-        Todo sayfasındasın
         <Navbar />
         <BoardColumn />
       </div>

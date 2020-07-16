@@ -81,7 +81,7 @@ class BoardColumn extends React.Component {
                   {isAddCardHidden ? "AddCard" : "Hide AddCard"}
                 </button>
                 {!isAddCardHidden ? (
-                  <div >
+                  <div  >
                     <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
                       <label className="boardColumn__addCard--header">
                         Card header

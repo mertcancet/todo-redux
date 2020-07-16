@@ -7,7 +7,13 @@ class Head extends React.PureComponent {
     const { history } = this.props;
     return (
       <div className="head">
-        Burası head
+     
+        <button
+          className="head--todoBtn"
+          onClick={() => history && history.push("/todo")}
+        >
+          ToDo
+        </button>
         <button
           className="head--exitBtn"
           onClick={() => history && history.push("/goodbye")}
