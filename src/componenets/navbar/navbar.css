@@ -31,17 +31,18 @@
 .navbar__hideCardBtn:hover {
   background-color: #f26609;
 }
+.navbar__addColumn__wraper {
+  display: flex;
+  justify-content: center;
+}
 .navbar__addColumn {
   position: absolute;
-
   height: 350px;
   width: 350px;
   background-color: #333;
-
   box-shadow: 0 0 0 4px #f26609, 0 6px 4px black;
   border-radius: 3px;
   margin: 1px;
-  float: right;
 }
 .navbar__addColumn--header {
   color: white;
@@ -50,7 +51,6 @@
 .navbar__addColumn--input {
   margin: 20px;
 }
-
 .navbar__addColumn--btn {
   border: 2px solid #f26609;
   border-radius: 5px;
@@ -60,10 +60,38 @@
   padding: 5px;
 }
 
+.navbar__addCard__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .navbar__addCard {
-  height: 250px;
-  width: 250px;
-  border: 2px solid black;
+  position: absolute;
+  height: 350px;
+  width: 350px;
+  background-color: #333;
+  box-shadow: 0 0 0 4px #f26609, 0 6px 4px black;
+  border-radius: 3px;
   margin: 1px;
-  float: right;
+}
+
+.navbar__addCard--header {
+  color: white;
+  text-align: center;
+}
+.navbar__addCard--selectionHeader {
+  color: white;
+  text-align: center;
+}
+.navbar__addCard--form {
+  margin: 20px;
+  padding: 5px;
+}
+.navbar__addCard--btn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 20px;
+  padding: 5px;
 }

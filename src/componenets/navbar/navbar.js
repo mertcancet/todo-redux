@@ -20,6 +20,7 @@ class Navbar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.toggleHideCard = this.toggleHideCard.bind(this);
     this.toggleHideColumn = this.toggleHideColumn.bind(this);
+    this.handleColumn = this.handleColumn.bind(this);
   }
 
   handleCardText(value) {
@@ -31,13 +32,22 @@ class Navbar extends React.Component {
   handleChange(event) {
     this.setState({ cardColumn: event.target.value });
   }
+  handleColumn() {
+    this.setState({
+      isColumnRendererHidden: !this.state.isColumnRendererHidden,
+    });
+    this.props.addColumn({
+      id: Math.random(),
+      text: this.state.columnText,
+    });
+  }
   handleSubmit(e) {
+    this.setState({ isCardRendererHidden: !this.state.isCardRendererHidden });
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,
       cardColumn: this.state.cardColumn,
     });
-
     e.preventDefault();
   }
   toggleHideColumn() {
@@ -67,52 +77,58 @@ class Navbar extends React.Component {
           {isCardRendererHidden ? "card-göster" : "card-gizle"}
         </button>
         {!isColumnRendererHidden ? (
-          <div className="navbar__addColumn ">
-            <h2 className="navbar__addColumn--header">Kolon Ekleyin</h2>
-            <br />
-            <input
-              className="navbar__addColumn--input"
-              onChange={(e) => this.handleColumnText(e.target.value)}
-            ></input>
-            <button
-              className="navbar__addColumn--btn"
-              onClick={() =>
-                this.props.addColumn({
-                  id: Math.random(),
-                  text: columnText,
-                })
-              }
-            >
-              Kolon Ekle
-            </button>
+          <div className="navbar__addColumn__wraper">
+            <div className="navbar__addColumn ">
+              <h2 className="navbar__addColumn--header">Kolon Ekleyin</h2>
+              <br />
+              <input
+                className="navbar__addColumn--input"
+                onChange={(e) => this.handleColumnText(e.target.value)}
+              ></input>
+              <button
+                className="navbar__addColumn--btn"
+                onClick={this.handleColumn}
+              >
+                Kolon Ekle
+              </button>
+            </div>
           </div>
         ) : (
           <p></p>
         )}
         {!isCardRendererHidden ? (
-          <div className="navbar__addCard">
-            add cards
-            <br />
-            <form onSubmit={this.handleSubmit}>
-              <input
-                onChange={(e) => this.handleCardText(e.target.value)}
-              ></input>
-              <div>
-                <select name="" id="" onChange={this.handleChange}>
-                  {this.props.columnList.map((each) => {
-                    return (
-                      <option
-                        key={each.get("id", Math.random())}
-                        value={each.get("text")}
-                      >
-                        {each.get("text", "gelmedi")}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <input type="submit" value="gönder" />
-            </form>
+          <div className="navbar__addCard__wrapper">
+            <div className="navbar__addCard">
+              <h2 className="navbar__addCard--header">Kart ekleyin</h2>
+              <br />
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  onChange={(e) => this.handleCardText(e.target.value)}
+                ></input>
+                <div className="navbar__addCard--form">
+                  <h3 className="navbar__addCard--selectionHeader">
+                    Kolon seçiniz
+                  </h3>
+                  <select name="" id="" onChange={this.handleChange}>
+                    {this.props.columnList.map((each) => {
+                      return (
+                        <option
+                          key={each.get("id", Math.random())}
+                          value={each.get("text")}
+                        >
+                          {each.get("text", "gelmedi")}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <input
+                    type="submit"
+                    value="gönder"
+                    className="navbar__addCard--btn"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         ) : (
           <p></p>
