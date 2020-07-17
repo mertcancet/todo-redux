@@ -1,0 +1,27 @@
+.welcome {
+  width: 99, 9999%;
+  height: 95vh;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #f26609;
+}
+.welcome__wrapper {
+}
+.welcome__wrapper--header {
+  color: white;
+  text-align: center;
+}
+.welcome__wrapper--btn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.welcome__wrapper--btn:hover {
+  background-color: #f26609;
+}

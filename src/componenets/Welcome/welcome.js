@@ -5,11 +5,16 @@ class Welcome extends React.PureComponent {
   render() {
     const { history } = this.props;
     return (
-      <div>
-        <label>Hoşgeldiniz</label>
-        <button onClick={() => history && history.push("/todo")}>
-          Todo Gönder{" "}
-        </button>
+      <div className="welcome">
+        <div className="welcome__wrapper">
+          <h1 className="welcome__wrapper--header"> Hoşgeldiniz</h1>
+          <button
+            className="welcome__wrapper--btn"
+            onClick={() => history && history.push("/todo")}
+          >
+            Todo Gönder{" "}
+          </button>
+        </div>
       </div>
     );
   }
