@@ -1,6 +1,7 @@
 .boardColumn {
   display: flex;
   flex-wrap: wrap;
+
   background-color: wheat;
 }
 .boardColumn__body {
@@ -16,6 +17,19 @@
   text-align: center;
   padding: 10px;
   font-weight: 400;
+}
+.boardColumn__body--deleteBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+  float: right;
+}
+.boardColumn__body--deleteBtn:hover {
+  background-color: red;
+  border-color: red;
 }
 .boardColumn__addCard {
   border: 3px solid #f26609;

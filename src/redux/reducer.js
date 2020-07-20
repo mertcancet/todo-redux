@@ -7,7 +7,7 @@ const initialStore = I.fromJS({
 
 export default function reducer(store = initialStore, action) {
   const data = I.fromJS(action.data);
-
+  console.log(action.data);
   switch (action.type) {
     case "ADD_COLUMN":
       return store.set(
@@ -24,6 +24,11 @@ export default function reducer(store = initialStore, action) {
       return store.set(
         "cardList",
         store.get("cardList", I.List()).delete(action.data)
+      );
+    case "DELETE_COLUMN":
+      return store.set(
+        "columnlist",
+        store.get("columnList", I.List()).delete(action.data)
       );
     default:
       return store;

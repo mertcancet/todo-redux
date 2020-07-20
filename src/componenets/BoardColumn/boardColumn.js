@@ -21,7 +21,7 @@ class BoardColumn extends React.Component {
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
   }
   cardHandleSubmit(e, index) {
-    // console.log("istenilen", this.props.columnList.getIn([index, "text"]));
+ 
     let value = this.props.columnList.getIn([index, "text"]);
     console.log(value);
     e.preventDefault();
@@ -29,7 +29,6 @@ class BoardColumn extends React.Component {
       cardColumn: value,
     });
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
-    console.log("carddcolymn", this.state.cardColumn);
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,
@@ -37,7 +36,6 @@ class BoardColumn extends React.Component {
     });
   }
   handleCardText(value) {
-    console.log("handleCardText");
     this.setState({ cardText: value });
   }
 
@@ -51,6 +49,13 @@ class BoardColumn extends React.Component {
               className="boardColumn__body"
               key={each.get("id", Math.random())}
             >
+              <button
+                className="boardColumn__body--deleteBtn"
+                onClick={() => this.props.deleteColumn(index)}
+              >
+                Kolonu Sil
+              </button>
+
               <h1 className="boardColumn__body--header">
                 {each.get("text", "")}
               </h1>
@@ -81,7 +86,7 @@ class BoardColumn extends React.Component {
                   {isAddCardHidden ? "AddCard" : "Hide AddCard"}
                 </button>
                 {!isAddCardHidden ? (
-                  <div  >
+                  <div>
                     <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
                       <label className="boardColumn__addCard--header">
                         Card header
@@ -101,12 +106,9 @@ class BoardColumn extends React.Component {
                   <p></p>
                 )}
               </div>
-              {this.props.columnList.get(index).id}
-              {console.log(this.props.columnList.getIn([index, "text"]))}
             </div>
           );
         })}
-        <Card />
       </div>
     );
   }
@@ -121,6 +123,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
   return {
     addCard: (add) => dispatch({ type: "ADD_CARD", data: add }),
+    deleteColumn: (index) => dispatch({ type: "DELETE_COLUMN", data: index }),
   };
 }
 
