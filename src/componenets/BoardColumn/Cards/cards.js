@@ -22,6 +22,7 @@ function mapStatetoProps() {
   return {};
 }
 function mapDispatchToProps(dispatch) {
+ 
   return {
     deleteCard: (index) => dispatch({ type: "DELETE_TODO", data: index }),
   };

@@ -7,6 +7,7 @@ const initialStore = I.fromJS({
 
 export default function reducer(store = initialStore, action) {
   const data = I.fromJS(action.data);
+
   console.log(action.data);
   switch (action.type) {
     case "ADD_COLUMN":

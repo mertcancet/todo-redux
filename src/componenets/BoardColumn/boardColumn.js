@@ -21,7 +21,6 @@ class BoardColumn extends React.Component {
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
   }
   cardHandleSubmit(e, index) {
- 
     let value = this.props.columnList.getIn([index, "text"]);
     console.log(value);
     e.preventDefault();
@@ -29,6 +28,7 @@ class BoardColumn extends React.Component {
       cardColumn: value,
     });
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
+
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,

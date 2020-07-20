@@ -59,11 +59,7 @@ class Navbar extends React.Component {
     this.setState({ isCardRendererHidden: !this.state.isCardRendererHidden });
   }
   render() {
-    const {
-      columnText,
-      isColumnRendererHidden,
-      isCardRendererHidden,
-    } = this.state;
+    const { isColumnRendererHidden, isCardRendererHidden } = this.state;
 
     return (
       <div className="navbar">
