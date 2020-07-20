@@ -3,22 +3,27 @@ import Card from "./Cards/cards";
 import I from "immutable";
 import { connect } from "react-redux";
 import "./boardColumn.css";
-
+import EditColumn from "./editColumn/editColumn";
 class BoardColumn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isEditColumnHidden: true,
       isAddCardHidden: true,
       cardText: "",
       cardColumn: "",
     };
     this.toggleAddCard = this.toggleAddCard.bind(this);
+    this.toggleEditColumn = this.toggleEditColumn.bind(this);
     this.cardHandleSubmit = this.cardHandleSubmit.bind(this);
     this.handleCardText = this.handleCardText.bind(this);
   }
 
   toggleAddCard() {
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
+  }
+  toggleEditColumn() {
+    this.setState({ isEditColumnHidden: !this.state.isEditColumnHidden });
   }
   cardHandleSubmit(e, index) {
     let value = this.props.columnList.getIn([index, "text"]);
@@ -28,7 +33,6 @@ class BoardColumn extends React.Component {
       cardColumn: value,
     });
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
-
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,
@@ -40,7 +44,7 @@ class BoardColumn extends React.Component {
   }
 
   render() {
-    const { isAddCardHidden } = this.state;
+    const { isAddCardHidden, isEditColumnHidden } = this.state;
     return (
       <div className="boardColumn">
         {this.props.columnList.map((each, index) => {
@@ -56,12 +60,30 @@ class BoardColumn extends React.Component {
                 Kolonu Sil
               </button>
 
+              <button
+                className="boardColumn__body--editBtn"
+                onClick={this.toggleEditColumn}
+              >
+                {isEditColumnHidden ? "Kolon Düzenle" : "Kapa"}
+              </button>
+
+              {!isEditColumnHidden ? (
+                <EditColumn
+                  key={each.get("id", Math.random())}
+                  id={each.get("id", Math.random())}
+                  columnText={each.get("text", "-")}
+                  index={index}
+                />
+              ) : (
+                <p></p>
+              )}
+
               <h1 className="boardColumn__body--header">
                 {each.get("text", "")}
               </h1>
               <br />
               {this.props.cardList.map((card, index) => {
-                if (card.get("cardColumn") === each.get("text")) {
+                if (card.get("cardColumn") === each.get("text", "")) {
                   return (
                     <div
                       className="boardColumn__card"

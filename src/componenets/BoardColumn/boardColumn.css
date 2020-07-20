@@ -31,6 +31,18 @@
   background-color: red;
   border-color: red;
 }
+.boardColumn__body--editBtn {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+  float: right;
+}
+.boardColumn__body--editBtn:hover {
+  background-color: #f26609;
+}
 .boardColumn__addCard {
   border: 3px solid #f26609;
   border-radius: 5px;
