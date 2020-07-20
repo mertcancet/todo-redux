@@ -28,7 +28,7 @@ export default function reducer(store = initialStore, action) {
       );
     case "DELETE_COLUMN":
       return store.set(
-        "columnlist",
+        "columnList",
         store.get("columnList", I.List()).delete(action.data)
       );
     default:
