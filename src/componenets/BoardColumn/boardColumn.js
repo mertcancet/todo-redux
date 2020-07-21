@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "./Cards/cards";
+import EditColumn from "./editColumn/editColumn";
 import I from "immutable";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./boardColumn.css";
-import EditColumn from "./editColumn/editColumn";
 class BoardColumn extends React.Component {
   constructor(props) {
     super(props);
@@ -53,6 +54,12 @@ class BoardColumn extends React.Component {
               className="boardColumn__body"
               key={each.get("id", Math.random())}
             >
+              <button
+                key={each.get("id", Math.random())}
+                onClick={() => this.props.history.push(`/todo/${index}`)}
+              >
+                Kolon detay gör
+              </button>
               <button
                 className="boardColumn__body--deleteBtn"
                 onClick={() => this.props.deleteColumn(index)}
@@ -149,4 +156,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardColumn);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(BoardColumn)
+);

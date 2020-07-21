@@ -6,6 +6,7 @@ import Todo from "./componenets/toDo/todo";
 import Goodbye from "./componenets/Goodbye/goodbye";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import BoardColumnCard from "./componenets/BoardColumn/boardColumnCard/boardColumnCard";
 
 class App extends React.PureComponent {
   render() {
@@ -15,7 +16,8 @@ class App extends React.PureComponent {
           <Head />
           <Switch>
             <Route exact path={"/"} component={Welcome} />
-            <Route path={"/todo"} component={Todo} />
+            <Route exact path={"/todo"} component={Todo} />
+            <Route exact path={"/todo/:index"} component={BoardColumnCard} />
             <Route path={"/goodbye"} component={Goodbye} />
           </Switch>
         </BrowserRouter>
