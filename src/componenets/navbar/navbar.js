@@ -48,6 +48,7 @@ class Navbar extends React.Component {
       cardText: this.state.cardText,
       cardColumn: this.state.cardColumn,
     });
+    this.setState({ cardColumn: "" });
     e.preventDefault();
   }
   toggleHideColumn() {
@@ -106,6 +107,9 @@ class Navbar extends React.Component {
                     Kolon seçiniz
                   </h3>
                   <select name="" id="" onChange={this.handleChange}>
+                    <option value="" defaultValue="">
+                      Kolon seciniz
+                    </option>
                     {this.props.columnList.map((each) => {
                       return (
                         <option

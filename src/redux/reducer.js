@@ -1,14 +1,13 @@
 import I, { update } from "immutable";
 
 const initialStore = I.fromJS({
-  columnList: [{ id: 0, text: ""}],
+  columnList: [{ id: 0, text: "" }],
   cardList: [{ id: 0, cardText: "", cardColumn: "" }],
 });
 
 export default function reducer(store = initialStore, action) {
   const data = I.fromJS(action.data);
 
-  console.log(data);
   switch (action.type) {
     case "ADD_COLUMN":
       return store.set(

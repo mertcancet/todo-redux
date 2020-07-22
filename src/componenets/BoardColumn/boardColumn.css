@@ -1,7 +1,7 @@
 .boardColumn {
   display: flex;
   flex-wrap: wrap;
-
+  background-size: cover;
   background-color: wheat;
 }
 .boardColumn__body {

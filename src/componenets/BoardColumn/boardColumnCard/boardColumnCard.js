@@ -6,14 +6,21 @@ class BoardColumnCard extends React.Component {
     console.log("board column card index", this.props);
     const {
       match: { params },
-
-      columnList,
     } = this.props;
     console.log(params.index);
     return (
-      <div>
-        selam*--
-        {columnList.getIn([params.index, "text", "id"], "boş")}
+      <div className="boardColumnCard">
+        {this.props.columnList.map((each) => {
+          if (each.get("id") === parseFloat(params.index))
+            return (
+              <div>
+                <h1>oldu</h1>
+                <h2>{typeof each.get("id")}</h2>
+                <h4>{typeof parseFloat(params.index)}</h4>
+                <h4>{each.get("text", "-")}</h4>
+              </div>
+            );
+        })}
       </div>
     );
   }

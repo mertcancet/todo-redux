@@ -56,7 +56,7 @@ class BoardColumn extends React.Component {
             >
               <button
                 key={each.get("id", Math.random())}
-                onClick={() => this.props.history.push(`/todo/${index}`)}
+                onClick={() => this.props.history.push(`/todo/${each.get("id","0")}`)}
               >
                 Kolon detay gör
               </button>
