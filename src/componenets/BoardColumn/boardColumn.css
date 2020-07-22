@@ -18,6 +18,17 @@
   padding: 10px;
   font-weight: 400;
 }
+.boardColumn__body--detailPage {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.boardColumn__body--detailPage:hover {
+  background-color: #f26609;
+}
 .boardColumn__body--deleteBtn {
   border: 2px solid #f26609;
   border-radius: 5px;

@@ -1,0 +1,17 @@
+.boardColumnCard {
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.boardColumnCard__card {
+  width: 350px;
+  height: 650px;
+  border: 3px solid #f26609;
+  background-color: #333;
+  border-radius: 5px;
+  margin: 20px 10px;
+}
+.boardColumnCard__card--header {
+  color: white;
+}

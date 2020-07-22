@@ -55,6 +55,7 @@ class BoardColumn extends React.Component {
               key={each.get("id", Math.random())}
             >
               <button
+                className="boardColumn__body--detailPage"
                 key={each.get("id", Math.random())}
                 onClick={() => this.props.history.push(`/todo/${each.get("id","0")}`)}
               >
