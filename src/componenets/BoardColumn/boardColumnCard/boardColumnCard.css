@@ -15,3 +15,15 @@
 .boardColumnCard__card--header {
   color: white;
 }
+
+.boardColumnCard__card--backpage {
+  border: 2px solid #f26609;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.boardColumnCard__card--backpage:hover {
+  background-color: #f26609;
+}

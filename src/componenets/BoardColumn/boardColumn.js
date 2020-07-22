@@ -28,16 +28,17 @@ class BoardColumn extends React.Component {
   }
   cardHandleSubmit(e, index) {
     let value = this.props.columnList.getIn([index, "text"]);
-    console.log(value);
+
     e.preventDefault();
     this.setState({
       cardColumn: value,
     });
+    console.log(this.state.cardColumn);
     this.setState({ isAddCardHidden: !this.state.isAddCardHidden });
     this.props.addCard({
       id: Math.random(),
       cardText: this.state.cardText,
-      cardColumn: this.state.cardColumn,
+      cardColumn: value,
     });
   }
   handleCardText(value) {
@@ -57,7 +58,9 @@ class BoardColumn extends React.Component {
               <button
                 className="boardColumn__body--detailPage"
                 key={each.get("id", Math.random())}
-                onClick={() => this.props.history.push(`/todo/${each.get("id","0")}`)}
+                onClick={() =>
+                  this.props.history.push(`/todo/${each.get("id", "0")}`)
+                }
               >
                 Kolon detay gör
               </button>
