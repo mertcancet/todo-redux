@@ -68,10 +68,10 @@ class Navbar extends React.Component {
           className="navbar__hideColumnBtn"
           onClick={this.toggleHideColumn}
         >
-          {isColumnRendererHidden ? "column-göster" : "column-gizle"}
+          {isColumnRendererHidden ? "Kolon Ekle" : "Kolon Ekle Kapat"}
         </button>
         <button className="navbar__hideCardBtn" onClick={this.toggleHideCard}>
-          {isCardRendererHidden ? "card-göster" : "card-gizle"}
+          {isCardRendererHidden ? "Kart Ekle" : "Kart Ekle Kapat"}
         </button>
         {!isColumnRendererHidden ? (
           <div className="navbar__addColumn__wraper">

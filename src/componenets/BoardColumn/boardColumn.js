@@ -116,13 +116,13 @@ class BoardColumn extends React.Component {
                   className="boardColumn__addCard--addCardbtn"
                   onClick={this.toggleAddCard}
                 >
-                  {isAddCardHidden ? "AddCard" : "Hide AddCard"}
+                  {isAddCardHidden ? "Kart Ekle" : "Kapat"}
                 </button>
                 {!isAddCardHidden ? (
                   <div>
                     <form onSubmit={(e) => this.cardHandleSubmit(e, index)}>
                       <label className="boardColumn__addCard--header">
-                        Card header
+                        Kart Başlığı
                       </label>
                       <input
                         className="boardColumn__addCard--input"
