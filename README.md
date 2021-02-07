@@ -4,7 +4,7 @@
 
   <h1 align="center">Todo Project</h1>
 
-  </p>
+
 </p>
 
 ![todo-app-gif](https://user-images.githubusercontent.com/61883804/95664375-f115ed00-0b4f-11eb-9b59-a815f28d7b90.gif)
@@ -12,7 +12,8 @@
 This project was bootstrapped with Create React App.
 <hr/>
 In this project I developt basic TO-DO App used React. Used Redux for state management and BEM Notation for CSS files.
-###Features:
+
+### Features:
 
 - Add/Delete/Update column. This column used for separate Todo's
 - Add/Delete/Update Todo's
